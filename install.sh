@@ -1,15 +1,13 @@
 conda create -n zett Python=3.11 -y
 source activate zett
 apt install vim -y 
-export HF_TOKEN=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
 
-pip3 install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu124 -y
+export HF_TOKEN=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
 
 pip install -r requirements.txt
 
-conda install -c conda-forge jax jaxlib -y
+pip install --upgrade "jax[cuda12_pip]==0.4.23" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
 
-pip install -U "jax[cuda12_pip]==0.4.23" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html 
 pip install -e .
 
 python -c "import jax; print(jax.devices())"
