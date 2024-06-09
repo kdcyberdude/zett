@@ -3,7 +3,7 @@ source activate zett
 apt install vim -y 
 
 pip install -r requirements.txt
-
+pip install --upgrade "jax[cuda12_pip]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
 pip install --upgrade "jax[cuda12_pip]==0.4.23" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
 
 pip install -e .
@@ -31,3 +31,6 @@ python data/prepare.py --out_train_dir ./train_ds --out_valid_dir ./valid_ds --i
 
 pip install nvitop
 nvidia-smi
+
+source activate zett
+python train.py configs/zeroshot/multilingual_mistral.json

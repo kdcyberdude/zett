@@ -1,9 +1,9 @@
 {
     "output_dir":"zett_output",
-    "train_directory":"zett/train_ds",
-    "valid_directory":"zett/valid_ds",
+    "train_directory":"train_ds",
+    "valid_directory":"valid_ds",
     "langs":"pa",
-    "init_from_params":"zett/zett-hypernetwork-multilingual-Mistral-7B-v0.1",
+    "init_from_params":"zett-hypernetwork-multilingual-Mistral-7B-v0.1",
     "model_name_or_path":"mistralai/Mistral-7B-v0.1",
     "revision":"refs/pr/95",
     "loss":"clm",
