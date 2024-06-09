@@ -7,7 +7,7 @@ pip3 install --pre torch torchvision torchaudio --index-url https://download.pyt
 
 pip install -r requirements.txt
 
-conda install -c conda-forge jax jaxlib
+conda install -c conda-forge jax jaxlib -y
 
 pip install -U "jax[cuda12_pip]==0.4.23" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html 
 pip install -e .
