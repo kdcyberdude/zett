@@ -1,9 +1,9 @@
-conda create -n zett Python=3.11
+conda create -n zett Python=3.11 -y
 source activate zett
-
+apt install vim -y 
 export HF_TOKEN=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
 
-pip3 install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu124
+pip3 install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu124 -y
 
 pip install -r requirements.txt
 
