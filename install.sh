@@ -30,3 +30,6 @@ git lfs install
 git clone https://huggingface.co/benjamin/zett-hypernetwork-multilingual-Mistral-7B-v0.1
 
 python data/prepare.py --out_train_dir ./train_ds --out_valid_dir ./valid_ds --include_langs pa
+
+pip install nvitop
+nvidia-smi
