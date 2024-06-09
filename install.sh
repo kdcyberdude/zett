@@ -2,8 +2,6 @@ conda create -n zett Python=3.11 -y
 source activate zett
 apt install vim -y 
 
-export HF_TOKEN=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
-
 pip install -r requirements.txt
 
 pip install --upgrade "jax[cuda12_pip]==0.4.23" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
@@ -11,6 +9,7 @@ pip install --upgrade "jax[cuda12_pip]==0.4.23" -f https://storage.googleapis.co
 pip install -e .
 
 python -c "import jax; print(jax.devices())"
+python -c "import jax.numpy as jnp; print(jnp.ones((3,)))"
 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 prompt 1 
@@ -22,6 +21,7 @@ sudo apt update
 sudo apt install build-essential -y
 
 cd rust_utils; maturin develop --release; cd ..
+export HF_TOKEN=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
 
 apt install git-lfs
 git lfs install
