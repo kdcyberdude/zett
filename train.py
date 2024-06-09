@@ -86,6 +86,18 @@ logger = logging.getLogger(__name__)
 np.seterr(all="raise")
 
 
+# TODO: update the config - /mnt/sea/proj/jun/zett/configs/zeroshot/mistral_multilingual.json
+# "extra_valid_tokenizer_names": [
+#         "bucket/artifacts/en_raw"
+#     ],
+#     "extra_valid_files": [
+#         "/mnt/disks/persist/valid/en.parquet"
+#     ],
+#     "extra_lang_codes": [
+#         "en"
+#     ],
+
+
 @dataclass
 class TrainingArguments:
     output_dir: str
@@ -376,6 +388,14 @@ def main():
                 ).read()
             )
         )
+
+        # TODO: FOR Punjabi Only Language
+        lang_embedding_keys = ('model', 'embeddings', 'lang_embedding', 'embedding')
+        original_embedding = flat_pretrained_params[lang_embedding_keys]
+        # Reduce the size to 1 row
+        reduced_embedding = original_embedding[:1, :]
+        flat_pretrained_params[lang_embedding_keys] = reduced_embedding
+        print('KD reduced embedding, shape -> ', flat_pretrained_params[lang_embedding_keys].shape) 
 
         full_weights_path = os.path.join(training_args.init_from_params, "full_model")
         if os.path.exists(full_weights_path):
