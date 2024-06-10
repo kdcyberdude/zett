@@ -11,8 +11,10 @@ pip install -e .
 python -c "import jax; print(jax.devices())"
 python -c "import jax.numpy as jnp; print(jnp.ones((3,)))"
 
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-prompt 1 
+spawn curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+expect "Type the number:"
+send "1\r"
+expect eof
 
 source ~/.bashrc
 source activate zett
